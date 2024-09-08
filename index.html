@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script>
+        function search() {
+            // Get the search query from the input field
+            var query = document.getElementById('searchInput').value.toLowerCase();
+
+            // Fetch data from JSON file on localhost:3000
+            fetch('http://localhost:3000/data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Filter data based on the search query
+                var results = data.filter(item => 
+                    item.Model.toLowerCase().includes(query) ||
+                    item.Keywords.some(keyword => keyword.toLowerCase().includes(query))
+                );
+
+                // Display search results
+                var resultsContainer = document.getElementById('results');
+                resultsContainer.innerHTML = '';
+
+                if (results.length > 0) {
+                    results.forEach(item => {
+                        var listItem = document.createElement('li');
+                        listItem.textContent = `${item.Model} - ${item.Manufacturer}`;
+                        resultsContainer.appendChild(listItem);
+                    });
+                } else {
+                    var noResultsItem = document.createElement('li');
+                    noResultsItem.textContent = 'No results found';
+                    resultsContainer.appendChild(noResultsItem);
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }
+        
+        // Function to handle form submission and send data to the server
+        function submitModel(event) {
+            event.preventDefault();
+
+            // Collect data from the form
+            const modelName = document.getElementById('modelName').value;
+            const manufacturer = document.getElementById('manufacturer').value;
+            const features = document.getElementById('features').value.split(',').map(feature => feature.trim());
+            const specifications = JSON.parse(document.getElementById('specifications').value); // Expect JSON input
+            const areaOfExploitation = document.getElementById('areaOfExploitation').value;
+            const keywords = document.getElementById('keywords').value.split(',').map(keyword => keyword.trim());
+
+            const newModel = {
+                Model: modelName,
+                Manufacturer: manufacturer,
+                Features: features,
+                Specifications: specifications,
+                "Area of Exploitation": areaOfExploitation,
+                Keywords: keywords
+            };
+
+            // Send the data to the server
+            fetch('http://localhost:3000/add-model', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newModel)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Model added successfully!');
+                    document.getElementById('modelForm').reset();
+                } else {
+                    alert('Failed to add model.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while adding the model.');
+            });
+        }
+    </script>
+    <title>Robotic Prosthetics</title>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div id="languageSwitcher">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('de')">German</button>
+        </div>
+
+    <!-- Search bar and results at the top of the page -->
+    <div id="search-container">
+        <h2>Search</h2>
+        <input type="text" id="searchInput" placeholder="Enter search term">
+        <button onclick="search()">Search</button>
+        <ul id="results"></ul>
+    </div>
+    
+    <div id="header">
+        <h1><a href="index.html">Robotic Prosthetics</a></h1>
+    </div>
+    
+    <div class="info-box">
+        <p>Robotic prosthetics provide users with a wide range of movements and functionalities that mimic the capabilities of a natural limb.</p>
+        <p>It can replace the lost limb or extend the support of the existing one in order to perform various tasks that can be harmful for human movability.</p>
+        <p>Below we can see a couple of examples of such technology advantages.</p>
+    </div>
+    
+    <div id="main-content">
+        <h2>Introduction</h2>
+        <p>Robotic prosthetics are advanced artificial limbs that use technology to enhance the lives of individuals with limb loss, functionality deprivation, or general daily assistance.</p>
+        
+        <h2>Advantages</h2>
+        <ul>
+            <li><a href="Page1.html">Increased Functionality</a></li>
+            <li><a href="Page2.html">Natural Movement</a></li>
+            <li><a href="Page3.html">Sensory Feedback</a></li>
+        </ul>
+        
+        <h2 id="increased-functionality">Increased Functionality</h2>
+        <div class="info-box">
+            <img src="img6.jpeg" alt="Robotic Prosthetic">
+            <span class="highlight-text">.</span>
+        </div>
+        
+        <h2 id="natural-movement">Natural Movement</h2>
+        <div class="info-box">
+            <img src="img7.jpeg" alt="Natural mimicry">
+        </div>
+        
+        <h2 id="sensory-feedback">Sensory Feedback</h2>
+        <div class="info-box">
+            <img src="img8.jpeg" alt="Connecting your brain to the machine will be the future"> 
+            <p>Some robotic prosthetics can provide sensory feedback, allowing users to feel sensations through the prosthetic limb.</p>
+            <p>This is usually done with the help of a vast amount of sensors, e.g., Mechanomyogram (MMG) sensor.</p>
+            <img src="ReWalk-Va-exoskeletons-1.png" alt="Exoskeleton limb assistance">
+        </div>
+        
+        <h2>Cyber Future</h2>
+        <img src="andrea-chiampo-exoskeleton-character-gif.gif" alt="Exoskeleton spine ergo 3D Model">
+    </div>
+
+    <div id="button-container">
+        <button id="donateButton">Donate Your Spare Limb. Someone needs it more than you do.</button>
+    </div>
+
+    <div id="footer">
+        <p>&copy; 2023 Robotic Prosthetics</p>
+    </div>
+
+ <!-- Model Submission Form -->
+ <section id="modelSubmission">
+    <h2>Add New Model</h2>
+    <form id="modelForm" onsubmit="submitModel(event)">
+        <label for="modelName">Model Name:</label>
+        <input type="text" id="modelName" name="modelName" required>
+        <br>
+
+        <label for="manufacturer">Manufacturer:</label>
+        <input type="text" id="manufacturer" name="manufacturer" required>
+        <br>
+
+        <label for="features">Features (comma-separated):</label>
+        <input type="text" id="features" name="features" required>
+        <br>
+
+        <label>Specifications:</label>
+        <div id="specifications">
+            <div>
+                <label for="weight">Weight:</label>
+                <input type="text" id="weight" name="weight">
+            </div>
+            <div>
+                <label for="batteryLife">Battery Life:</label>
+                <input type="text" id="batteryLife" name="batteryLife">
+            </div>
+            <div>
+                <label for="maxLoadCapacity">Maximum Load Capacity:</label>
+                <input type="text" id="maxLoadCapacity" name="maxLoadCapacity">
+            </div>
+        </div>
+        <br>
+
+        <label for="areaOfExploitation">Area of Exploitation:</label>
+        <input type="text" id="areaOfExploitation" name="areaOfExploitation" required>
+        <br>
+
+        <label for="keywords">Keywords (comma-separated):</label>
+        <input type="text" id="keywords" name="keywords" required>
+        <br>
+
+        <button type="submit">Submit Model</button>
+    </form>
+</section>
+
+</body>
+</html>

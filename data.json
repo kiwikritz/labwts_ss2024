@@ -1,0 +1,158 @@
+[
+  {
+    "Model": "RP-1000",
+    "Manufacturer": "TechProsthetics Inc.",
+    "Features": [
+      "Advanced motion sensing technology",
+      "Customizable grip strength",
+      "Waterproof design"
+    ],
+    "Specifications": {
+      "Weight": "500 grams",
+      "Battery Life": "12 hours",
+      "Maximum Load Capacity": "100 kilograms"
+    },
+    "Area of Exploitation": "Medical rehabilitation",
+    "Keywords": [
+      "hand",
+      "rehabilitation"
+    ]
+  },
+  {
+    "Model": "Xtend-500",
+    "Manufacturer": "CyberLimbs Ltd.",
+    "Features": [
+      "Biomechanical joint articulation",
+      "Integrated neural interface",
+      "Real-time feedback system"
+    ],
+    "Specifications": {
+      "Weight": "700 grams",
+      "Battery Life": "18 hours",
+      "Maximum Load Capacity": "120 kilograms"
+    },
+    "Area of Exploitation": "Assistive technology for daily living",
+    "Keywords": [
+      "arm",
+      "assistive",
+      "skeleton"
+    ]
+  },
+  {
+    "Model": "BioGrip Pro",
+    "Manufacturer": "BioTech Solutions",
+    "Features": [
+      "Muscle activation sensors",
+      "Tactile feedback technology",
+      "Adaptive learning algorithms"
+    ],
+    "Specifications": {
+      "Weight": "600 grams",
+      "Battery Life": "15 hours",
+      "Maximum Load Capacity": "110 kilograms"
+    },
+    "Area of Exploitation": "Sports and athletics",
+    "Keywords": [
+      "hand",
+      "sports"
+    ]
+  },
+  {
+    "Model": "NeuroFlex",
+    "Manufacturer": "NeuroTech Innovations",
+    "Features": [
+      "Neural interface for precise control",
+      "Lightweight and ergonomic design",
+      "Integrated EMG sensors"
+    ],
+    "Specifications": {
+      "Weight": "550 grams",
+      "Battery Life": "16 hours",
+      "Maximum Load Capacity": "105 kilograms"
+    },
+    "Area of Exploitation": "Neurorehabilitation",
+    "Keywords": [
+      "arm",
+      "neurorehabilitation"
+    ]
+  },
+  {
+    "Model": "PowerArm Plus",
+    "Manufacturer": "Bionic Dynamics",
+    "Features": [
+      "High-powered motor for heavy lifting",
+      "Artificial intelligence for intuitive control",
+      "Modular design for customization"
+    ],
+    "Specifications": {
+      "Weight": "750 grams",
+      "Battery Life": "20 hours",
+      "Maximum Load Capacity": "150 kilograms"
+    },
+    "Area of Exploitation": "Industrial applications",
+    "Keywords": [
+      "arm",
+      "heavy lifting",
+      "skeleton"
+    ]
+  },
+  {
+    "Model": "EcoHand",
+    "Manufacturer": "GreenTech Prosthetics",
+    "Features": [
+      "Biodegradable materials for sustainability",
+      "Energy-efficient power management",
+      "Enhanced grip strength"
+    ],
+    "Specifications": {
+      "Weight": "600 grams",
+      "Battery Life": "14 hours",
+      "Maximum Load Capacity": "110 kilograms"
+    },
+    "Area of Exploitation": "Environmental consciousness",
+    "Keywords": [
+      "hand",
+      "sustainability"
+    ]
+  },
+  {
+    "Model": "new model armor",
+    "Manufacturer": "kiwi ua",
+    "Features": [
+      "strengthening of the back",
+      "heavy-lifting maximization",
+      "back stability"
+    ],
+    "Specifications": {
+      "Weight": "500",
+      "BatteryLife": "24",
+      "MaximumLoadCapacity": "5000"
+    },
+    "AreaOfExploitation": "field combat",
+    "Keywords": [
+      "back",
+      "skeleton",
+      "exo"
+    ]
+  },
+  {
+    "Model": "new model armor 2",
+    "Manufacturer": "kiwi ua",
+    "Features": [
+      "strengthening of the back",
+      "heavy-lifting maximization",
+      "back stability"
+    ],
+    "Specifications": {
+      "Weight": "500",
+      "BatteryLife": "24",
+      "MaximumLoadCapacity": "5000"
+    },
+    "AreaOfExploitation": "field combat",
+    "Keywords": [
+      "back",
+      "skeleton",
+      "exo"
+    ]
+  }
+]
